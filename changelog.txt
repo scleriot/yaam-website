@@ -1,0 +1,23 @@
+Changelog :
+
+Version 2.1.3
+	* Fix updates checking
+	* Loading dialog when fectching informations from server
+	* App count is shown on tab when searching and browsing a category
+
+Version 2.1.2 :
+	* Licensing allowed
+	* New way to detect applications updates
+	* Browse in search activity
+	* Correct "Update activity" click problem
+
+Version 2.1.1
+	* Screenshots are now resized when watching its from YAAM application
+	* Add Previous and Next buttons when browsing through applications
+	
+
+Version 2.1
+	* Notifications when applications updates are available
+	* Add URI handle so you can use QRCode on YAAM website
+	* New YAAM application update process
+	* Remove Caaptain analytics API
