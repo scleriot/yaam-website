@@ -43,7 +43,7 @@ function user_exists($username,$email)
 	$query = $bdd->query("SELECT COUNT(id) AS nb FROM `users` WHERE UPPER(username) = '".$username."' OR UPPER(email) = '".$email."'") or die(mysql_error());
 	
 	$data=$query->fetch();
-	if ($data['nb'] == 1)
+	if ($data['nb'] > 0)
 	{
 		return true;
 	}
