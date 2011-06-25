@@ -118,7 +118,7 @@ function crypte_fichier($chemin_fichier,$chaine_crypt,$chemin1_fichier){
     // ferme les fichiers
     fclose($ancien);fclose($nouveau);
     unlink($chemin_fichier);//suprimme l'ancien fichier
-    chmod($chemin1_fichier,0666);
+    //chmod($chemin1_fichier,0666);
   }
 }
 
