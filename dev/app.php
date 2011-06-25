@@ -74,8 +74,23 @@ if($infos['widget']==1)
 <?php echo '<li><a class="modalbox" href="/dev/updateApk.php?id='.$package.'">'._("Update application (APK)").'</a></li>'; ?>
 </ul>
 
-<br /><br /><br /><br />
+<br /><br />
 
+<script>
+	$(function() {
+		$( "#tabs" ).tabs();
+	});
+</script>
+
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1"><?php echo _("Informations"); ?></a></li>
+		<li><a href="#tabs-2"><?php echo _("Screens"); ?></a></li>
+		<li><a href="#tabs-3"><?php echo _("Analytics"); ?></a></li>
+		<li><a href="#tabs-4"><?php echo _("Comments"); ?></a></li>
+	</ul>
+	
+	<div id="tabs-1">
 
 <div id="tapp">
 	<div class="appv">
@@ -117,7 +132,8 @@ if($infos['widget']==1)
     </div>
 </div>
 
-<br />
+	</div>
+	<div id="tabs-3">
 
 <h2>Analytics</h2>
     
@@ -304,6 +320,8 @@ $js.="]
 </script>
 
 
+	</div>
+	<div id="tabs-2">
 
 <div>
     <h2><?php echo _("Screenshots");?></h2>
@@ -346,7 +364,8 @@ $js.="]
         ?>
 </div>
 
-<br />
+	</div>
+	<div id="tabs-4">
 
 <div id="comments">
 
@@ -381,6 +400,8 @@ foreach($comments as $comment)
 ?>
 </div>
 
+	</div>
+</div>
 
 <?php
 include("../configuration/footer.php");

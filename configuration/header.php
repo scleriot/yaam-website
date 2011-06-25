@@ -50,26 +50,45 @@ function isDev($userid)
     }
     ?>
     
+    
     <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/fancybox.js"></script>
 	<script type="text/javascript" src="/js/jquery.easing.js"></script>
 	<link rel="stylesheet" href="/css/fancybox.css" type="text/css" media="screen" />
 	
+	<script type="text/javascript" src="/js/jquery-ui.js"></script>
+	<link rel="stylesheet" href="/css/humanity/jquery-ui.css" type="text/css" />
+
 	<script>
 	$(document).ready(function() {
 		
-		$("a.modalbox").fancybox({
-			'hideOnContentClick': false
+		$("a.modalbox").click(function(event){
+			var url=$(this).attr("href");
+			event.preventDefault();
+			$('#modal').dialog({
+	            modal: true,
+	            open: function ()
+	            {
+	                $("#modal").load(url);
+	            },         
+	            title: '',
+	            width: 800,
+	            position: 'top'
+        	});
 		});
 		
 		<?php
 		if(strlen($_SESSION['message'])>0)
 		{
 		?>
-			$("a#inline").fancybox({
-			'hideOnContentClick': true
-			});	
-			$("#inline").trigger('click');
+			$("#notif").dialog({
+				modal: true,
+				buttons: {
+					Ok: function() {
+						$( this ).dialog( "close" );
+					}
+				}
+			});
 		<?php
 		}
 		?>
@@ -84,11 +103,15 @@ function isDev($userid)
 /////NOTIFICATION !!!////
 if(strlen($_SESSION['message'])>0)
 {
-	echo '<a id="inline" href="#notif"></a> <div style="display:none"><div id="notif">'.$_SESSION['message'].'</div></div>';
+	//echo '<a id="inline" href="#notif"></a> <div style="display:none"><div id="notif">'.$_SESSION['message'].'</div></div>';
+
+	echo '<div id="notif" title="'._("Notification").'"><p>'.$_SESSION['message'].'</p></div>';
 
 	$_SESSION['message']="";
 }
 ?>
+
+<div id="modal"></div>
 
 <!--=== Wrapper ===--> 
  <div id="wrapper"> 

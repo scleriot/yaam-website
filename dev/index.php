@@ -15,6 +15,24 @@ checkConnected();
 
 if(isDev($_userid))
 {
+	
+?>
+
+<script>
+	$(function() {
+		$( "#tabs" ).tabs();
+	});
+</script>
+
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1"><?php echo _("Applications"); ?></a></li>
+		<li><a href="#tabs-2"><?php echo _("Informations"); ?></a></li>
+	</ul>
+	
+	<div id="tabs-2">
+<?php
+	
 $infos=developer_infos(developer_id($_userid));
 
 echo _("Developer : ").$infos["name"]."<br />";
@@ -31,7 +49,8 @@ echo '<a class="modalbox" href="/dev/changeInformations.php">'._("Change your in
 
 ?>
 
-<br /><br />
+	</div>
+	<div id="tabs-1">
 
 <h3><?php echo _("Your Uploaded Apps");?></h3><br />
 
@@ -70,6 +89,13 @@ foreach($apps as $app)
     </div>
 <?php
 }
+
+?>
+
+	</div>
+</div>
+
+<?php
 
 }
 else if(isConnected())
