@@ -52,8 +52,6 @@ function isDev($userid)
     
     
     <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/fancybox.js"></script>
-	<script type="text/javascript" src="/js/jquery.easing.js"></script>
 	<link rel="stylesheet" href="/css/fancybox.css" type="text/css" media="screen" />
 	
 	<script type="text/javascript" src="/js/jquery-ui.js"></script>
