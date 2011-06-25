@@ -406,7 +406,7 @@ function apps_updateApk($apk,$appid,$oldpackage,$userVersion)
 									
 				if (move_uploaded_file ($apk['tmp_name'], $dossier . 'application.apk'))
 				{
-					chmod($dossier . 'application.apk',0666);
+					//chmod($dossier . 'application.apk',0666);
 					$size=filesize($dossier . 'application.apk');
 					
 						crypte_fichier($APK_DIR.$password.'/application.apk','yaamroxxandisthebest',$APK_DIR.$password.'/application_crypt.apk');
