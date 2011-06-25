@@ -186,7 +186,7 @@ $comments=comments_get($infos['id'],$_language);
 
 foreach($comments as $comment)
 {
-if(strlen($comment)>0)
+if(sizeof($comment)>0)
 {
 ?>
     <div class="app">	
