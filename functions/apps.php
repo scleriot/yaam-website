@@ -149,7 +149,7 @@ function apps_add($name,$namefr,$cat,$icon,$price,$tags,$description,$descriptio
 						{
 							chmod($dossier . 'icon.png', 0666);
 							
-							$infos=apps_infosfromapk($APK_DIR.$password.'/application.apk');
+							$infos=apps_infosfromapk($dossier.'application.apk');
 							
 							$version=protect($infos[0]);	
 							$package=protect($infos[1]);
