@@ -388,7 +388,7 @@ function apps_updateApk($apk,$appid,$oldpackage,$userVersion)
 			$package=protect($infos[1]);
 			$minSdk=intval($infos[2]);
 			$permissions=protect($infos[3]);
-			
+						
 			if(strlen($package)>0 && ($package==$oldpackage || ($package!=$oldpackage && !apps_exists($package))))
 			{
 				if(strlen($version)==0 && strlen($userVersion)==0)
@@ -448,11 +448,12 @@ function apps_updateApk($apk,$appid,$oldpackage,$userVersion)
 
 function apps_infosfromapk($file)
 {
+	global $AAPT_DIR;
+
 	$infos=array();
-	
 	$retour = array();
-	exec ("aapt l -a ".realpath($file),$retour);
-	
+	exec ($AAPT_DIR." l -a ".realpath($file),$retour);
+
 	$txt = "";
 	for($i = 0; $i < sizeof ($retour); $i++)
 		$txt .= $retour[$i];
