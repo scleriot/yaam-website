@@ -106,9 +106,8 @@ function apps_add($name,$namefr,$cat,$icon,$price,$tags,$description,$descriptio
 			}
 		}
 		
-		$dossier = $APK_DIR.$password.'/';
-		
-		mkdir($dossier);
+		$dossierAPK=$APK_DIR.$password.'/';
+		mkdir($dossierAPK);
 
 		$taille_maxi = 104857600;
 		$taille = filesize($apk['tmp_name']);
@@ -122,11 +121,11 @@ function apps_add($name,$namefr,$cat,$icon,$price,$tags,$description,$descriptio
 			
 		if (!isset($error))
 		{
-			if (move_uploaded_file ($apk['tmp_name'], $dossier . 'application.apk'))
+			if (move_uploaded_file ($apk['tmp_name'], $dossierAPK . 'application.apk'))
 			{
-				chmod($dossier . 'application.apk',0666);
+				chmod($dossierAPK . 'application.apk',0666);
 				
-				$size=filesize($dossier . 'application.apk');
+				$size=filesize($dossierAPK . 'application.apk');
 				
 				if(isset($icon))
 				{
@@ -149,7 +148,7 @@ function apps_add($name,$namefr,$cat,$icon,$price,$tags,$description,$descriptio
 						{
 							chmod($dossier . 'icon.png', 0666);
 							
-							$infos=apps_infosfromapk($dossier.'application.apk');
+							$infos=apps_infosfromapk($dossierAPK.'application.apk');
 							
 							$version=protect($infos[0]);	
 							$package=protect($infos[1]);
